@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>旅遊報名表單</title>
+  <style>
+    :root {
+      --primary-color: #0066cc;
+      --bg-color: #f4f7f6;
+      --card-bg: #ffffff;
+      --text-color: #333333;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      background-color: var(--card-bg);
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    header h1 {
+      margin-top: 0;
+      color: var(--primary-color);
+      font-size: 1.5rem;
+    }
+
+    fieldset {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    legend {
+      font-weight: bold;
+      padding: 0 8px;
+      color: var(--primary-color);
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 1rem;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 5px rgba(0, 102, 204, 0.3);
+    }
+
+    .required {
+      color: #e63946;
+    }
+
+    button {
+      width: 100%;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.2s;
+    }
+
+    button:hover {
+      background-color: #0052a3;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      color: #777;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>2026 年度旅遊行程報名</h1>
+      <p>請填寫以下資訊完成預約，我們將盡快與您聯繫！</p>
+    </header>
+
+    <main>
+      <form action="/submit-booking" method="POST">
+        <fieldset>
+          <legend>基本報名資料</legend>
+
+          <div class="form-group">
+            <label for="fullname">姓名 <span class="required">*</span></label>
+            <input 
+              type="text" 
+              id="fullname" 
+              name="fullname" 
+              placeholder="請輸入您的真實姓名" 
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="email">電子郵件 <span class="required">*</span></label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              placeholder="example@email.com" 
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="travel-month">報名月份</label>
+            <select id="travel-month" name="travel_month">
+              <option value="" disabled selected>-- 請選擇出發月份 --</option>
+              <option value="01">一月</option>
+              <option value="02">二月</option>
+              <option value="03">三月</option>
+              <option value="04">四月</option>
+              <option value="05">五月</option>
+              <option value="06">六月</option>
+              <option value="07">七月</option>
+              <option value="08">八月</option>
+              <option value="09">九月</option>
+              <option value="10">十月</option>
+              <option value="11">十一月</option>
+              <option value="12">十二月</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <button type="submit">確認送出報名</button>
+      </form>
+    </main>
+
+    <footer>
+      <small>&copy; 2026 旅遊工作室 版權所有</small>
+    </footer>
+  </div>
+
+</body>
+</html>
